@@ -5,7 +5,7 @@ import { Founders } from "./components/Founders";
 import { Hero } from "./components/Hero";
 import { LocaMap } from "./components/LocaMap";
 
-function App() {
+export function Main() {
     const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
     return (
@@ -102,5 +102,3 @@ function App() {
         </div>
     );
 }
-
-export default App;
