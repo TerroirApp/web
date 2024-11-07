@@ -1,13 +1,14 @@
 import type { ReactNode } from "react";
 import "./tailwind.css";
-import type { LinksFunction, MetaFunction } from "@remix-run/node";
 import {
     Links,
+    type LinksFunction,
     Meta,
-    Outlet,
+    type MetaFunction,
     Scripts,
     ScrollRestoration,
-} from "@remix-run/react";
+} from "react-router";
+import { Outlet } from "react-router";
 import { Navigation } from "~/components/Navigation";
 
 export const links: LinksFunction = () => [
