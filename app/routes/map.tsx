@@ -1,5 +1,5 @@
 import { LocaMap } from "~/components/LocaMap";
 
-export default function Map() {
+export default function MapPage() {
     return <LocaMap />;
 }

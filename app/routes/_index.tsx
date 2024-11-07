@@ -1,7 +1,7 @@
 import { Founders } from "~/components/Founders";
 import { Hero } from "~/components/Hero";
 
-export default function Home() {
+export default function HomePage() {
     return (
         <>
             <Hero />

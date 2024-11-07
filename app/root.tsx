@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import "./index.css";
+import "./tailwind.css";
 import type { LinksFunction, MetaFunction } from "@remix-run/node";
 import {
     Links,
@@ -8,6 +8,7 @@ import {
     Scripts,
     ScrollRestoration,
 } from "@remix-run/react";
+import { Navigation } from "~/components/Navigation";
 
 export const links: LinksFunction = () => [
     {
@@ -56,7 +57,10 @@ export function Layout({ children }: { children: ReactNode }) {
                 <Links />
             </head>
             <body className="scrollbars">
-                {children}
+                <div className="min-h-screen bg-white">
+                    <Navigation />
+                    {children}
+                </div>
                 <ScrollRestoration />
                 <Scripts />
             </body>

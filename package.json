@@ -4,11 +4,11 @@
     "version": "0.0.0",
     "type": "module",
     "scripts": {
-        "dev": "vite",
-        "build": "vite build",
+        "build": "remix vite:build",
+        "dev": "remix vite:dev",
         "format:check": "biome check .",
         "format": "biome check --write .",
-        "preview": "vite preview"
+        "typecheck": "tsc"
     },
     "dependencies": {
         "@remix-run/node": "^2.13.1",
