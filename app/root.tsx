@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import "./tailwind.css";
+import "./styles/global.css";
 import { createSyncStoragePersister } from "@tanstack/query-sync-storage-persister";
 import { QueryClient } from "@tanstack/react-query";
 import {
@@ -15,6 +16,7 @@ import {
     ScrollRestoration,
 } from "react-router";
 import { Outlet } from "react-router";
+import { PageContainer } from "~/components/Container";
 import { Navigation } from "~/components/Navigation";
 
 export const links: LinksFunction = () => [
@@ -64,7 +66,7 @@ export function Layout({ children }: { children: ReactNode }) {
                 <Links />
             </head>
             <body className="scrollbars">
-                <div className="min-h-screen bg-white">
+                <div>
                     <Navigation />
                     {children}
                 </div>
@@ -98,7 +100,9 @@ export default function App() {
             client={queryClient}
             persistOptions={persistOptions}
         >
-            <Outlet />
+            <PageContainer>
+                <Outlet />
+            </PageContainer>
         </PersistQueryClientProvider>
     );
 }

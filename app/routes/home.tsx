@@ -1,11 +1,5 @@
-import { Founders } from "~/components/Founders";
-import { Hero } from "~/components/Hero";
+import { Landing } from "~/components/landing";
 
 export default function HomePage() {
-    return (
-        <>
-            <Hero />
-            <Founders />
-        </>
-    );
+    return <Landing />;
 }
