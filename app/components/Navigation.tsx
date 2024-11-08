@@ -1,66 +1,64 @@
 import { Menu, X } from "lucide-react";
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router";
+import styles from "./Navigation.module.css";
 
 export function Navigation() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     return (
-        <nav className="fixed w-full bg-white/80 backdrop-blur-md z-50 shadow-sm">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex justify-between items-center h-16">
-                    <Link to="/" className="text-2xl font-bold text-green-600">
+        <nav className={styles.nav}>
+            <div className={styles.container}>
+                <div className={styles.wrapper}>
+                    <Link to="/" className={styles.logo}>
                         Locavore
                     </Link>
 
-                    <div className="hidden md:flex space-x-8">
-                        <Link
-                            to="/"
-                            className="text-gray-600 hover:text-green-600"
-                        >
+                    <div className={styles.desktopMenu}>
+                        <Link to="/" className={styles.link}>
                             Acceuil
                         </Link>
-                        <Link
-                            to="/map"
-                            className="text-gray-600 hover:text-green-600"
-                        >
+                        <Link to="/map" className={styles.link}>
                             Trouver un producteur
                         </Link>
                     </div>
 
                     <button
-                        className="md:hidden"
+                        className={styles.menuButton}
                         type="button"
                         onClick={() => setIsMenuOpen(!isMenuOpen)}
                     >
                         {isMenuOpen ? (
-                            <X className="h-6 w-6 text-gray-600" />
+                            <X
+                                className="h-6 w-6"
+                                style={{ color: "#4b5563" }}
+                            />
                         ) : (
-                            <Menu className="h-6 w-6 text-gray-600" />
+                            <Menu
+                                className="h-6 w-6"
+                                style={{ color: "#4b5563" }}
+                            />
                         )}
                     </button>
                 </div>
             </div>
 
-            {/* Mobile menu */}
             {isMenuOpen && (
-                <div className="md:hidden">
-                    <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                        <Link
-                            to="/"
-                            className="block px-3 py-2 text-gray-600 hover:text-green-600"
-                            onClick={() => setIsMenuOpen(false)}
-                        >
-                            Acceuil
-                        </Link>
-                        <Link
-                            to="/map"
-                            className="block px-3 py-2 text-gray-600 hover:text-green-600"
-                            onClick={() => setIsMenuOpen(false)}
-                        >
-                            Trouver un producteur
-                        </Link>
-                    </div>
+                <div className={styles.mobileMenu}>
+                    <Link
+                        to="/"
+                        className={styles.mobileLink}
+                        onClick={() => setIsMenuOpen(false)}
+                    >
+                        Acceuil
+                    </Link>
+                    <Link
+                        to="/map"
+                        className={styles.mobileLink}
+                        onClick={() => setIsMenuOpen(false)}
+                    >
+                        Trouver un producteur
+                    </Link>
                 </div>
             )}
         </nav>

@@ -1,0 +1,146 @@
+.container {
+    background: white;
+    padding: 6rem 1rem;
+}
+
+.content {
+    max-width: 80rem;
+    margin: 0 auto;
+}
+
+.valuesGrid {
+    display: grid;
+    gap: 3rem;
+    margin-bottom: 6rem;
+}
+
+.valueCard {
+    background: #f0fdf4;
+    border-radius: 1rem;
+    padding: 2rem;
+    text-align: center;
+    transition: box-shadow 0.3s;
+}
+
+.valueCard:hover {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.valueIcon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 9999px;
+    background: #dcfce7;
+    color: #16a34a;
+    margin-bottom: 1.5rem;
+}
+
+.valueTitle {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #111827;
+    margin-bottom: 0.75rem;
+}
+
+.valueDescription {
+    color: #4b5563;
+}
+
+.teamSection {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.teamTitle {
+    font-size: 1.875rem;
+    font-weight: bold;
+    color: #111827;
+    margin-bottom: 1rem;
+}
+
+.teamDescription {
+    font-size: 1.125rem;
+    color: #4b5563;
+    max-width: 42rem;
+    margin: 0 auto;
+}
+
+.foundersGrid {
+    display: grid;
+    gap: 3rem;
+}
+
+.founderCard {
+    background: #f0fdf4;
+    border-radius: 1rem;
+    padding: 2rem;
+    transform: translateY(0);
+    transition: all 0.3s;
+}
+
+.founderCard:hover {
+    transform: translateY(-0.25rem);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.founderContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.founderImage {
+    width: 8rem;
+    height: 8rem;
+    border-radius: 9999px;
+    object-fit: cover;
+    border: 4px solid #dcfce7;
+    transition: border-color 0.3s;
+}
+
+.founderCard:hover .founderImage {
+    border-color: #bbf7d0;
+}
+
+.founderInfo {
+    text-align: center;
+}
+
+.founderName {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #111827;
+    margin-bottom: 0.5rem;
+}
+
+.founderRole {
+    color: #16a34a;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.founderBio {
+    color: #4b5563;
+}
+
+@media (min-width: 768px) {
+    .valuesGrid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .foundersGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .founderContent {
+        flex-direction: row;
+    }
+
+    .founderInfo {
+        text-align: left;
+    }
+}

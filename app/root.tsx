@@ -1,5 +1,11 @@
 import type { ReactNode } from "react";
 import "./tailwind.css";
+import { createSyncStoragePersister } from "@tanstack/query-sync-storage-persister";
+import { QueryClient } from "@tanstack/react-query";
+import {
+    PersistQueryClientProvider,
+    type PersistQueryClientProviderProps,
+} from "@tanstack/react-query-persist-client";
 import {
     Links,
     type LinksFunction,
@@ -69,6 +75,30 @@ export function Layout({ children }: { children: ReactNode }) {
     );
 }
 
+const persistOptions: PersistQueryClientProviderProps["persistOptions"] = {
+    persister: createSyncStoragePersister({
+        storage:
+            typeof window !== "undefined" ? window.localStorage : undefined,
+    }),
+    maxAge: Number.POSITIVE_INFINITY,
+};
+
+export const queryClient = new QueryClient({
+    defaultOptions: {
+        queries: {
+            gcTime: Number.POSITIVE_INFINITY,
+            staleTime: 1000 * 60 * 5, // 5 minutes
+        },
+    },
+});
+
 export default function App() {
-    return <Outlet />;
+    return (
+        <PersistQueryClientProvider
+            client={queryClient}
+            persistOptions={persistOptions}
+        >
+            <Outlet />
+        </PersistQueryClientProvider>
+    );
 }
