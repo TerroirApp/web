@@ -8,4 +8,5 @@ import {
 export const routes: RouteConfig = [
     index("./routes/home.tsx"),
     route("map", "./routes/map.tsx"),
+    route("find", "./routes/find.tsx"),
 ];

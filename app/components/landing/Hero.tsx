@@ -28,10 +28,7 @@ export function Hero() {
                         consommateurs avec les producteurs locaux.
                     </p>
                     <div className={styles.buttons}>
-                        <Link
-                            to="/app/routes/map"
-                            className={styles.primaryButton}
-                        >
+                        <Link to="/find" className={styles.primaryButton}>
                             Trouver des producteurs
                             <ArrowRight
                                 style={{

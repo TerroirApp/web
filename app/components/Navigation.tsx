@@ -18,7 +18,7 @@ export function Navigation() {
                         <Link to="/" className={styles.link}>
                             Acceuil
                         </Link>
-                        <Link to="/map" className={styles.link}>
+                        <Link to="/find" className={styles.link}>
                             Trouver un producteur
                         </Link>
                     </div>
@@ -53,7 +53,7 @@ export function Navigation() {
                         Acceuil
                     </Link>
                     <Link
-                        to="/map"
+                        to="/find"
                         className={styles.mobileLink}
                         onClick={() => setIsMenuOpen(false)}
                     >

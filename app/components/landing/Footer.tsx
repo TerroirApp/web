@@ -6,7 +6,7 @@ export function Footer() {
         <>
             <footer className={styles.container}>
                 <h2>Prêt à consommer localement ?</h2>
-                <Link className={styles.ctaButton} to={"/map"}>
+                <Link className={styles.ctaButton} to={"/find"}>
                     Trouver un Producteur
                 </Link>
                 <nav>

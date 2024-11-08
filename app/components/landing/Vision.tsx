@@ -9,11 +9,12 @@ export function Vision() {
                     <h2>Imaginer un Futur Décentralisé</h2>
                     <p>
                         La vision de TerroirApp dépasse la simple consommation
-                        locale. Nous construisons un avenir résilient et
-                        décentralisé qui renforce les communautés, soutient les
-                        chaînes d'approvisionnement transparentes et utilise
-                        l'IA pour guider les consommateurs vers des choix
-                        durables.
+                        locale.
+                        <br />
+                        Nous construisons un avenir résilient et décentralisé
+                        qui renforce les communautés, soutient les chaînes
+                        d'approvisionnement transparentes et utilise l'IA pour
+                        guider les consommateurs vers des choix durables.
                     </p>
                 </div>
                 <ul className={styles.bulletList}>

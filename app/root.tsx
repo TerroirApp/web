@@ -1,5 +1,4 @@
 import type { ReactNode } from "react";
-import "./tailwind.css";
 import "./styles/global.css";
 import { createSyncStoragePersister } from "@tanstack/query-sync-storage-persister";
 import { QueryClient } from "@tanstack/react-query";
@@ -7,6 +6,7 @@ import {
     PersistQueryClientProvider,
     type PersistQueryClientProviderProps,
 } from "@tanstack/react-query-persist-client";
+import { Provider } from "jotai";
 import {
     Links,
     type LinksFunction,
@@ -100,9 +100,11 @@ export default function App() {
             client={queryClient}
             persistOptions={persistOptions}
         >
-            <PageContainer>
-                <Outlet />
-            </PageContainer>
+            <Provider>
+                <PageContainer>
+                    <Outlet />
+                </PageContainer>
+            </Provider>
         </PersistQueryClientProvider>
     );
 }

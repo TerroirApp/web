@@ -29,8 +29,9 @@
 
     --font-family-heading: "Inter", sans-serif;
     --font-family-body: "Inter", sans-serif;
-    --font-size-base: 16px;
+
     --font-size-large: 24px;
+    --font-size-base: 16px;
     --font-size-small: 14px;
 
     --transition: all 0.3s ease;

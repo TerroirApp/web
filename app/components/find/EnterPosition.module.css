@@ -1,0 +1,46 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    h2 {
+        max-width: 80vw;
+    }
+
+    button {
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--green-700);
+        color: #ffffff;
+        padding: 16px 32px;
+        border-radius: 44px;
+        border: 0;
+        font-size: 1.125rem;
+        font-weight: 500;
+        text-decoration: none;
+        box-shadow: var(--card-shadow);
+        transition: var(--transition);
+
+        &:hover {
+            color: #ffffff;
+            box-shadow: var(--card-shadow-hover);
+        }
+
+        &:disabled {
+            cursor: auto;
+            background: var(--green-800);
+            box-shadow: none;
+        }
+    }
+
+    .error {
+        color: var(--red-accent);
+        font-size: 0.9rem;
+        font-weight: 500;
+    }
+}
