@@ -7,7 +7,7 @@ import L, { Marker as LeafletMarker } from "leaflet";
 import "leaflet.markercluster/dist/leaflet.markercluster.js";
 import { useEffect } from "react";
 import { MapContainer, TileLayer } from "react-leaflet";
-import { useAllData } from "~/lib/useAllData";
+import { useAllProducers } from "~/lib/useAllProducers";
 import styles from "./FindMap.module.css";
 
 export function FindMap({ userPosition }: { userPosition: Position }) {
@@ -35,23 +35,31 @@ export function FindMap({ userPosition }: { userPosition: Position }) {
 }
 
 function MapDataPoints() {
-    const { data } = useAllData();
+    const { data } = useAllProducers();
     const { map } = useLeafletContext();
 
     // Every time map or data changes, add the marker to the map
     useEffect(() => {
-        if (!data || !map) {
+        if (!data?.producers || !map) {
             return;
         }
 
+        console.log("Categories", {
+            categories: data.categories,
+            families: data.productFamilies,
+        });
+
         // Create each marker on the map
-        const markers = data.map((producer) => {
+        const markers = data.producers.map((producer) => {
             // Create the marker and add it to the map
-            const [lon, lat] = producer?.geometry?.coordinates ?? [0, 0];
-            return new LeafletMarker([lat, lon], {
-                title: producer.properties.nom,
-                riseOnHover: true,
-            });
+            // todo: Should also add a simple hover info + on click detection to open the details panel
+            return new LeafletMarker(
+                [producer.position.lat, producer.position.lon],
+                {
+                    title: producer.name,
+                    riseOnHover: true,
+                }
+            );
         });
         // Create our marker cluster group and add it to the map
         L.markerClusterGroup({}).addLayers(markers).addTo(map);
