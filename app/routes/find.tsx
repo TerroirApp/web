@@ -1,11 +1,6 @@
-import { Suspense } from "react";
-import { LocaMap } from "~/components/LocaMap";
 import { Find } from "~/components/find/index.client";
+import { ClientOnly } from "~/components/utils/ClientOnly";
 
 export default function FindPage() {
-    return (
-        <Suspense>
-            <Find />
-        </Suspense>
-    );
+    return <ClientOnly>{() => <Find />}</ClientOnly>;
 }

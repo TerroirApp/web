@@ -11,7 +11,8 @@
         "enabled": true,
         "rules": {
             "recommended": true,
-            "a11y": { "useKeyWithClickEvents": "off" }
+            "a11y": { "useKeyWithClickEvents": "off" },
+            "correctness": { "noUnusedImports": "error" }
         }
     },
     "formatter": {
