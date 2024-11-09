@@ -1,17 +1,16 @@
-export type Producer = {
-    id: number;
-    name: string;
-    description: string;
-
-    category: "producer" | "selling-point";
-    productTypes?: string;
-    sellingPointType?: "sharedLocked" | "producerMarket" | "" | "other";
-
-    address: string;
-    postalCode: string;
-    communalInseeCode: string;
-    gpsCoordinates: string;
-
-    platformName: string;
-    platformUrl: string;
+export type FindProducerResponse = {
+    type: string;
+    geometry: {
+        type: "Point";
+        coordinates: [number, number];
+    };
+    properties: {
+        identifiant: string;
+        nom: string;
+        adresse: string;
+        categorie: string;
+        nom_de_la_plateforme: string;
+        familles_des_produits: Array<string>;
+        familles_des_produits_restreintes?: string;
+    };
 };

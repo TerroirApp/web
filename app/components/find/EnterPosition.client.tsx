@@ -2,6 +2,7 @@ import { useMutation } from "@tanstack/react-query";
 import { useSetAtom } from "jotai";
 import { useMemo, useState } from "react";
 import { positionAtom } from "~/store/positionAtom";
+import type { Position } from "~/types/Position";
 import styles from "./EnterPosition.module.css";
 
 export function EnterPosition() {
@@ -122,7 +123,7 @@ function PostalCodePosition() {
             const { coordinates } = result.results[0];
 
             // Set the position in the atom
-            setPosition(coordinates as { lon: number; lat: number });
+            setPosition(coordinates as Position);
         },
     });
 
