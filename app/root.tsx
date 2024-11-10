@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import "./styles/global.css";
 import { createSyncStoragePersister } from "@tanstack/query-sync-storage-persister";
 import { QueryClient } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import {
     PersistQueryClientProvider,
     type PersistQueryClientProviderProps,
@@ -105,6 +106,10 @@ export default function App() {
                     <Outlet />
                 </PageContainer>
             </Provider>
+            <ReactQueryDevtools
+                initialIsOpen={false}
+                buttonPosition={"bottom-left"}
+            />
         </PersistQueryClientProvider>
     );
 }

@@ -33,7 +33,8 @@ export function useAllProducers() {
                     address: feature.properties.adresse,
                     category: feature.properties.categorie,
                     platformName: feature.properties.nom_de_la_plateforme,
-                    productFamilies: feature.properties.familles_des_produits,
+                    productFamilies:
+                        feature.properties.familles_des_produits ?? [],
                     restrictedProductFamilies:
                         feature.properties.familles_des_produits_restreintes,
                     position: {
@@ -47,22 +48,16 @@ export function useAllProducers() {
             const { categories, productFamilies } = producers.reduce(
                 (acc, producer) => {
                     // Append categories
-                    acc.categories.set(
-                        producer.category,
-                        (acc.categories.get(producer.category) ?? 0) + 1
-                    );
+                    acc.categories.add(producer.category);
                     // Append product families
-                    for (const family of producer.productFamilies) {
-                        acc.productFamilies.set(
-                            family,
-                            (acc.productFamilies.get(family) ?? 0) + 1
-                        );
+                    for (const family of producer.productFamilies ?? []) {
+                        acc.productFamilies.add(family);
                     }
                     return acc;
                 },
                 {
-                    categories: new Map<string, number>(),
-                    productFamilies: new Map<string, number>(),
+                    categories: new Set<string>(),
+                    productFamilies: new Set<string>(),
                 }
             );
 
